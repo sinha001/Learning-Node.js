@@ -1,0 +1,3 @@
+#no need to push node_modules into github.. this gitignore helps to ignore pushing those folder which has no importance.
+/node_modules
+

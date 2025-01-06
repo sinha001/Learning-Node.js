@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <%- include('common/header'); %>
+    <!-- Includes a reusable EJS partial file named `header.ejs` from the `common` folder.
+         - `<%- %>` is used for including raw EJS output without escaping it.
+         - This is typically used for navigation menus, headers, or footers shared across multiple pages. -->
+
+    <h1>Profile of <%= data.name %></h1> 
+    <!-- Dynamically outputs the `name` property of the `data` object passed to this EJS file.
+         - `<%= %>` is used to escape and render HTML-safe content. -->
+
+    <p>Email: <%= data.email %></p> 
+    <!-- Dynamically outputs the `email` property from the `data` object. -->
+
+    <p>City: <%= data.city %></p> 
+    <!-- Dynamically outputs the `city` property from the `data` object. -->
+
+    <ul>
+        <% data.skills.forEach((item) => { %> 
+        <!-- Loops through the `skills` array within the `data` object.
+             - `<% %>` is used for JavaScript logic and control flow without rendering output.
+             - `data.skills` is an array containing a list of skills, and `forEach` iterates over each skill. -->
+
+            <li>
+                <%= item %> 
+                <!-- Dynamically outputs each `item` (skill) inside an HTML list item (`<li>`).
+                     - `<%= %>` escapes the value to prevent XSS attacks. -->
+            </li>
+        <% }) %> 
+        <!-- Ends the loop started with `forEach`. -->
+    </ul>
+</body>
+</html>
